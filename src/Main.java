@@ -41,20 +41,20 @@ public class Main {
         // A runtime exception will occur, specifically a ClassCastException. Attempting to cast an Object (which holds a reference to a String) directly to an int type.
         //A compilation error will occur. The reason is that you are trying to perform an invalid type cast from a String literal to an int. The types String and int are incompatible, and direct casting between them is not allowed.
 
-        int x = 4;
-        x += 5;
+        int a = 4;
+        a += 5;
 
-        int x = 3;
-        int y = 4;
-        y *= x;
+        int b = 3;
+        int c = 4;
+        c *= b;
 
-        int x = 10;
-        int y = 2;
-        x /= y;
+        int q = 10;
+        int w = 2;
+        q /= w;
 
-        int x = 10;
-        int y = 2;
-        y -= x;
+        int f = 10;
+        int g = 2;
+        f -= g;
 
 
 //        Assigning a value larger than the type can hold:
