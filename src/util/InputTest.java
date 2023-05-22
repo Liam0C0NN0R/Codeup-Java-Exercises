@@ -5,30 +5,26 @@ public class InputTest {
     public static void main(String[] args) {
         Input input = new Input();
 
-        System.out.println("Enter a string: ");
-        String stringInput = input.getString();
+        String stringInput = input.getString("Enter a string: ");
         System.out.println("You entered: " + stringInput);
 
-        System.out.println("Do you agree? (yes/no): ");
-        boolean booleanInput = input.yesNo();
+        boolean booleanInput = input.yesNo("Do you agree? (yes/no): ");
         System.out.println("You agreed: " + booleanInput);
 
-        System.out.println("Enter any integer: ");
-        int intInput = input.getInt();
+        int intInput = input.getInt("Enter any integer: ");
         System.out.println("You entered: " + intInput);
 
         int minInt = 1;
         int maxInt = 10;
-        int rangeInt = input.getInt(minInt, maxInt);
+        int rangeInt = input.getInt(minInt, maxInt, "Enter a number between " + minInt + " and " + maxInt);
         System.out.println("You entered in range: " + rangeInt);
 
-        System.out.println("Enter any decimal number: ");
-        double doubleInput = input.getDouble();
+        double doubleInput = input.getDouble("Enter any decimal number: ");
         System.out.println("You entered: " + doubleInput);
 
         double minDouble = 1.0;
         double maxDouble = 10.0;
-        double rangeDouble = input.getDouble(minDouble, maxDouble);
+        double rangeDouble = input.getDouble(minDouble, maxDouble, "Enter a number between " + minDouble + " and " + maxDouble);
         System.out.println("You entered in range: " + rangeDouble);
     }
 }

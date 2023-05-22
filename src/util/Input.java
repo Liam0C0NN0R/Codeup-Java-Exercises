@@ -19,39 +19,62 @@ public class Input {
     public String getString() {
         return scanner.nextLine();
     }
+    public String getString(String prompt) {
+        System.out.println(prompt);
+        return scanner.nextLine();
+    }
+
 //TODO The yesNo method should return true if the user enters y, yes, or variants thereof, and false otherwise.
     public boolean yesNo() {
         String input = scanner.nextLine().toLowerCase();
         return input.equals("y") || input.equals("yes");
     }
+    public boolean yesNo(String prompt) {
+        System.out.println(prompt);
+        String input = scanner.nextLine().toLowerCase();
+        return input.equals("y") || input.equals("yes");
+    }
 //TODO The getInt(int min, int max) method should keep prompting the user for input until they give an integer within the min and max. The getDouble method should do the same thing, but with decimal numbers.
-    public int getInt(int min, int max) {
-        while (true) {
-            System.out.println("Enter a number between " + min + " and " + max);
-            int input = scanner.nextInt();
-            if (input >= min && input <= max) {
-                return input;
-            }
-            System.out.println("Invalid input. Please try again.");
-        }
+public int getInt(int min, int max) {
+    int input;
+    do {
+        input = scanner.nextInt();
+    } while (!(input >= min && input <= max));
+    return input;
+}
+
+    public int getInt(int min, int max, String prompt) {
+        System.out.println(prompt);
+        return getInt(min, max);
     }
 
     public int getInt() {
         return scanner.nextInt();
     }
+    public int getInt(String prompt) {
+        System.out.println(prompt);
+        return scanner.nextInt();
+    }
 
     public double getDouble(double min, double max) {
-        while (true) {
-            System.out.println("Enter a number between " + min + " and " + max);
-            double input = scanner.nextDouble();
-            if (input >= min && input <= max) {
-                return input;
-            }
-            System.out.println("Invalid input. Please try again.");
-        }
+        double input;
+        do {
+            input = scanner.nextDouble();
+        } while (!(input >= min && input <= max));
+        return input;
+    }
+
+    public double getDouble(double min, double max, String prompt) {
+        System.out.println(prompt);
+        return getDouble(min, max);
     }
 
     public double getDouble() {
+        return scanner.nextDouble();
+    }
+
+    public double getDouble(String prompt) {
+        System.out.println(prompt);
         return scanner.nextDouble();
     }
 }
