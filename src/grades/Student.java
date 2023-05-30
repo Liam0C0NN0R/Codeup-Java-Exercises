@@ -15,6 +15,9 @@ public class Student {
     public void addGrade(int grade) {
         grades.add(grade);
     }
+    public ArrayList<Integer> getGrades() {
+        return grades;
+    }
 
     public double getGradeAverage() {
         if (grades.isEmpty()) {
