@@ -26,6 +26,12 @@ public class InputTest {
         double maxDouble = 10.0;
         double rangeDouble = input.getDouble(minDouble, maxDouble, "Enter a number between " + minDouble + " and " + maxDouble);
         System.out.println("You entered in range: " + rangeDouble);
+
+        int binaryInput = input.getBinary("Enter a binary number: ");
+        System.out.println("Your number is: " + binaryInput);
+
+        int hexInput = input.getHex("Enter a hexadecimal number: ");
+        System.out.println("Your number is: " + hexInput);
     }
 }
 

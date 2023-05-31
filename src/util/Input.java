@@ -36,9 +36,7 @@ public class Input {
     public int getInt(int min, int max, String prompt) {
         int input;
         do {
-            System.out.println(prompt);
-            input = scanner.nextInt();
-            scanner.nextLine(); // consume newline left-over
+            input = getInt(prompt);
         } while (!(input >= min && input <= max));
         return input;
     }
@@ -48,9 +46,17 @@ public class Input {
     }
 
     public int getInt(String prompt) {
-        System.out.println(prompt);
-        int result = scanner.nextInt();
-        scanner.nextLine(); // consume newline left-over
+        int result;
+        while (true) {
+            try {
+                System.out.println(prompt);
+                String input = getString();
+                result = Integer.valueOf(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid integer. Please try again.");
+            }
+        }
         return result;
     }
 
@@ -61,9 +67,7 @@ public class Input {
     public double getDouble(double min, double max, String prompt) {
         double input;
         do {
-            System.out.println(prompt);
-            input = scanner.nextDouble();
-            scanner.nextLine(); // consume newline left-over
+            input = getDouble(prompt);
         } while (!(input >= min && input <= max));
         return input;
     }
@@ -73,9 +77,55 @@ public class Input {
     }
 
     public double getDouble(String prompt) {
-        System.out.println(prompt);
-        double result = scanner.nextDouble();
-        scanner.nextLine(); // consume newline left-over
+        double result;
+        while (true) {
+            try {
+                System.out.println(prompt);
+                String input = getString();
+                result = Double.valueOf(input);
+                break;
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid decimal number. Please try again.");
+            }
+        }
         return result;
+    }
+
+        public int getBinary() {
+            return getBinary("Enter a binary number: ");
+        }
+
+        public int getBinary(String prompt) {
+            int result;
+            while (true) {
+                try {
+                    System.out.println(prompt);
+                    String input = getString();
+                    result = Integer.valueOf(input, 2);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid binary number. Please try again.");
+                }
+            }
+            return result;
+        }
+
+        public int getHex() {
+            return getHex("Enter a hexadecimal number: ");
+        }
+
+        public int getHex(String prompt) {
+            int result;
+            while (true) {
+                try {
+                    System.out.println(prompt);
+                    String input = getString();
+                    result = Integer.valueOf(input, 16);
+                    break;
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid hexadecimal number. Please try again.");
+                }
+            }
+            return result;
     }
 }
